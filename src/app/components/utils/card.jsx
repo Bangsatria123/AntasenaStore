@@ -39,7 +39,7 @@ let data = [
 
 const Card = () => {
 	return (
-		<div className='flex flex-wrap gap-4 p-4'>
+		<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 w-full justify-center text-center items-center  ps-2 md:ps-5 lg:ps-10'>
 			{data.map((item, index) => (
 				<a
 					href={`../topup/${item.url}`}
