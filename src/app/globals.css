@@ -1,3 +1,112 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.card {
+    margin: 0 auto;
+    position: relative;
+}
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+   }
+    
+.card::after, .card::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-image: conic-gradient(from var(--angle),transparent 20%, #A58C6F ,#6F8CA5,#8CA56F ,#A56F8C);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 10px;
+    border-radius: 1rem;
+    animation: 2s spin linear infinite;
+    -webkit-animation: 2s spin linear infinite;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+.card::before{
+    filter: blur(1.5em);
+    opacity: 0.7;
+    -webkit-filter: blur(1.5em);
+}
+
+.title{
+    z-index: 2;
+    animation: slideUp 300ms ease-in-out forwards;
+    -webkit-animation: slideUp 300ms ease-in-out forwards;
+}
+
+.card:hover .title{
+    animation: slideDown 1s forwards ease-in-out;
+    -webkit-animation: slideDown 1s forwards ease-in-out;
+}
+
+
+@keyframes slideDown {
+    0%{
+        transform: translateY(-120px);
+        -webkit-transform: translateY(-120px);
+        -moz-transform: translateY(-120px);
+        -ms-transform: translateY(-120px);
+        -o-transform: translateY(-120px);
+}
+    80%{
+        transform: translateY(10%);
+        -webkit-transform: translateY(10%);
+        -moz-transform: translateY(10%);
+        -ms-transform: translateY(10%);
+        -o-transform: translateY(10%);
+}
+    100%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+}
+}
+@keyframes slideUp {
+    0%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+    20%{
+        transform: translateY(10%);
+        -webkit-transform: translateY(10%);
+        -moz-transform: translateY(10%);
+        -ms-transform: translateY(10%);
+        -o-transform: translateY(10%);
+    }
+    100%{
+        transform: translateY(-120px);
+        -webkit-transform: translateY(-120px);
+        -moz-transform: translateY(-120px);
+        -ms-transform: translateY(-120px);
+        -o-transform: translateY(-120px);
+}
+}
+
+@keyframes spin {
+   form{
+        --angle: 0deg;
+   }
+   to {
+    --angle : 360deg;
+   } 
+}
+
+.img {
+    height: 300px;
+}
